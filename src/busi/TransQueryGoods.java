@@ -51,11 +51,16 @@ public class TransQueryGoods extends TransAbs {
 		if (query_type.equals("0")) {// 全部查询
 			getDbhelper().prtAllGoods();
 			setTrans_result("查询完成");
+			return 0;
 		} else if (query_type.equals("1")) {// 精确查询
-			if (goods_no.contains(getGoods_no()) || goods_name.contains(getGoods_name())) {
-				getDbhelper().toString();
+			Goods goods = dbhelper.exactFind(goods_name, goods_no);
+			if (goods != null) {
+				System.out.println(goods.toString());
+				setTrans_result("精确查询完成");
+				return 0;
 			} else {
-				System.out.println("没有查到相关信息！");
+				setTrans_result("没有查到相关信息！");
+				return -1;
 			}
 		} else if (query_type.equals("2")) {// 模糊查询
 
@@ -64,7 +69,7 @@ public class TransQueryGoods extends TransAbs {
 	}
 
 	public void prtResult() {
-		System.out.println();
+		System.out.println(trans_result);
 	}
 
 	public String getQuery_type() {

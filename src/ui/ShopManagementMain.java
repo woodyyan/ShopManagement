@@ -46,6 +46,7 @@ public class ShopManagementMain {
 				System.out.println("创建交易实例出错");
 			}
 		}
+
 		scan.close();
 		System.out.println("系统正常退出");
 	}

@@ -13,6 +13,19 @@ public class DBOper {
 		goods_list = new ArrayList<Goods>();
 	}
 
+	public Goods exactFind(String name, String no) {
+		for (Goods g : goods_list) {
+			if (g.getGoods_name().equals(name) && g.getGoods_no().equals(no)) {
+				return g;
+			}
+		}
+		return null;
+	}
+
+	public Goods fuzFind() {
+
+	}
+
 	public int insertGoods(Goods g) {
 		goods_list.add(g);
 		return 0;
