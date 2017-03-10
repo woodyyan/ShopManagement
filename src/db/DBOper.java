@@ -28,4 +28,11 @@ public class DBOper {
 		}
 		return 0;
 	}
+
+	public int prtAllGoods() {
+		for (Goods g : goods_list) {
+			System.out.println(g.toString());
+		}
+		return 0;
+	}
 }

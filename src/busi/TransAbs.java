@@ -11,7 +11,7 @@ abstract public class TransAbs implements TransInterface {
 
 	public TransAbs() {
 		scan = new Scanner(System.in);
-		dbhelper = new DBOper();
+
 	}
 
 	public void prtResult() {

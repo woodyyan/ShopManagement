@@ -1,5 +1,7 @@
 package busi;
 
+import db.DBOper;
+
 public interface TransInterface {
 	// 1.提示输入信息
 	// 2.从界面读取输入的数据
@@ -12,4 +14,6 @@ public interface TransInterface {
 	public int doTrans();
 
 	public void prtResult();
+
+	public void setDbhelper(DBOper dbhelper);
 }

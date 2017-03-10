@@ -54,4 +54,10 @@ public class Goods {
 		this.goods_status = i;
 	}
 
+	@Override
+	public String toString() {
+		return "Goods [goods_no=" + goods_no + ", goods_name=" + goods_name + ", goods_unit=" + goods_unit
+				+ ", goods_status=" + goods_status + "]";
+	}
+
 }

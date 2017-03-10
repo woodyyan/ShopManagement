@@ -2,7 +2,7 @@ package busi;
 
 public class TransAddGoods extends TransAbs {
 	String goods_no;// 商品编号
-	String goods_name;// 商品名册很难过
+	String goods_name;// 商品名称
 	String goods_unit;// 单位
 
 	public void prtPrompt() {
@@ -31,6 +31,10 @@ public class TransAddGoods extends TransAbs {
 			setTrans_result("获取商品单位错误");
 			return -1;
 		}
+		System.out.print("goods_no[" + goods_no + "],");
+		System.out.print("goods_name[" + goods_name + "],");
+		System.out.print("goods_unit[" + goods_unit + "]");
+		System.out.println();
 		return 0;
 	}
 
