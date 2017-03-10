@@ -1,5 +1,7 @@
 package busi;
 
+import java.util.List;
+
 public class TransQueryGoods extends TransAbs {
 	String query_type;// 查询方式
 	String goods_no;// 商品编号
@@ -53,7 +55,7 @@ public class TransQueryGoods extends TransAbs {
 			setTrans_result("查询完成");
 			return 0;
 		} else if (query_type.equals("1")) {// 精确查询
-			Goods goods = dbhelper.exactFind(goods_name, goods_no);
+			Goods goods = dbhelper.exactFind(goods_no);
 			if (goods != null) {
 				System.out.println(goods.toString());
 				setTrans_result("精确查询完成");
@@ -62,7 +64,18 @@ public class TransQueryGoods extends TransAbs {
 				setTrans_result("没有查到相关信息！");
 				return -1;
 			}
-		} else if (query_type.equals("2")) {// 模糊查询
+		} else if (query_type.equals("2")) {// 模糊查询（目前只能查一个）
+
+			if (dbhelper.fuzFind(goods_name) != null) {
+				List<Goods> list = dbhelper.fuzFind(goods_name);
+				for (Goods g : list) {
+					System.out.println(g.toString());
+				}
+				return 0;
+			} else {
+				setTrans_result("没有查到相关信息！");
+				return -1;
+			}
 
 		}
 		return 0;

@@ -4,7 +4,7 @@ public class Goods {
 	String goods_no;// 商品编号
 	String goods_name;// 商品名称
 	String goods_unit;// 商品单位
-	int goods_status;// 商品状态
+	String goods_status;// 商品状态
 
 	public int addGoods() {
 		return 0;
@@ -46,11 +46,11 @@ public class Goods {
 		this.goods_unit = goods_unit;
 	}
 
-	public int getGoods_status() {
+	public String getGoods_status() {
 		return goods_status;
 	}
 
-	public void setGoods_status(int i) {
+	public void setGoods_status(String i) {
 		this.goods_status = i;
 	}
 
