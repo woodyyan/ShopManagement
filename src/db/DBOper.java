@@ -6,11 +6,12 @@ import java.util.List;
 import busi.Goods;
 
 public class DBOper {
-	List<Goods> goods_list;// 存放商品的列表
 	// List是一个接口，Goods是泛型
+	List<Goods> goods_list;// 存放商品的列表
 
 	public DBOper() {
 		goods_list = new ArrayList<Goods>();
+
 	}
 
 	public Goods exactFind(String no) {
