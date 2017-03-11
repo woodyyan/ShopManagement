@@ -13,7 +13,7 @@ public class ProviderDBOper {
 		provider_list = new ArrayList<Provider>();
 	}
 
-	public int Provider(Provider p) {
+	public int insertProvider(Provider p) {
 		provider_list.add(p);
 		return 0;
 	}

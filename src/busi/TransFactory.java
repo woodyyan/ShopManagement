@@ -11,6 +11,8 @@ public class TransFactory {
 			trans = new TransEditGoods();
 		} else if (strTrans.equals("3")) {// 查询商品
 			trans = new TransQueryGoods();
+		} else if (strTrans.equals("4")) {// 查询商品
+			trans = new TransAddPrvd();
 		}
 		return trans;
 	}
