@@ -6,26 +6,26 @@ import java.util.Date;
  * Created by Woody on 2017/3/13.
  */
 public class TransEditInventory extends TransAbs {
-    String goods_no;// å•†å“ç¼–å·
-    String goods_name;// å•†å“åç§°
-    int goods_count;// å•†å“æ•°é‡
-    String goods_unit;// å•†å“å•ä½
-    double goods_price;// è¿›è´§ä»·æ ¼
-    Date purchase_date;// è¿›è´§æ—¥æœŸ
+    String goods_no;
+    String goods_name;
+    int goods_count;
+    String goods_unit;
+    double goods_price;
+    Date purchase_date;
     Inventory inventory;
     Sale sale;
 
 
     public void prtPrompt() {
-        System.out.println("åº“å­˜ä¿¡æ¯ä¿®æ”¹|è¯·è¾“å…¥å•†å“ç¼–å·");
+        System.out.println("¿â´æĞÅÏ¢ĞŞ¸Ä|ÇëÊäÈëÉÌÆ·±àºÅ£º");
 
     }
 
     public int getInput() {
-        // å•†å“ç¼–å·
+        //¶ÁÈ¡ÉÌÆ·±àºÅ
         goods_no = scan.next();
         if (goods_no == null) {
-            setTrans_result("è¯»å–å•†å“ç¼–å·é”™è¯¯");
+            setTrans_result("¶ÁÈ¡ÉÌÆ·±àºÅÊ§°Ü");
             return -1;
         }
         inventory = dbhelper.exactFindInventory(goods_no);
@@ -34,9 +34,15 @@ public class TransEditInventory extends TransAbs {
     }
 
     public int doTrans() {
-        int changedAmt = inventory.getGoods_count() - sale.getSale_amt();
-        inventory.setGoods_count(changedAmt);
-        setTrans_result("ä¿®æ”¹æˆåŠŸ");
+        if (sale != null) {
+            int changedAmt = inventory.getGoods_count() - sale.getSale_amt();
+//            inventory.setGoods_count(changedAmt);
+            dbhelper.modifyInventoryGoodsCount(goods_no, changedAmt);
+            setTrans_result("ĞŞ¸Ä³É¹¦");
+        } else {
+            setTrans_result("¿â´æÎŞ±ä»¯");
+        }
+
 
         return 0;
     }

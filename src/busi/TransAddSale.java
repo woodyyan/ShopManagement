@@ -22,7 +22,7 @@ public class TransAddSale extends TransAbs {
     public int findGoodsInfo(String no) {
         Inventory inventory = dbhelper.exactFindInventory(no);
         if (inventory == null) {
-            setTrans_result("找不到该商品编号！");
+            setTrans_result("库存记录中找不到该商品编号！");
             return -1;
         } else {
             System.out.println("该商品信息如下：");

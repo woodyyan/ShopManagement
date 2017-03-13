@@ -81,7 +81,7 @@ public class ShopManagementMain {
 		System.out.println("\t3-查询商品信息\t4-新增供货商");
 		System.out.println("\t5-修改供货商信息\t6-查询供货商信息");
 		System.out.println("\t7-采购信息录入\t8-销售信息录入");
-		System.out.println("\t9-库存查询\t0-库存修改");
+		System.out.println("\t9-库存修改\t0-库存查询");
 		System.out.println("********************************************");
 		System.out.println("请输入您要进行的操作,退出请输入q/Q：");
 		System.out.println();

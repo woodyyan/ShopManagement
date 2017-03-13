@@ -26,6 +26,15 @@ public class DBOper {
 
 	}
 
+	public void modifyInventoryGoodsCount(String goodsNo, int changeAmount){
+		for (Inventory i:inventory_list){
+			if (i.getGoods_no().equals(goodsNo)){
+				i.setGoods_count(changeAmount);
+				break;
+			}
+		}
+	}
+
 	public Goods exactFindGoods(String no) {
 		for (Goods g : goods_list) {
 			if (g.getGoods_no().equals(no)) {
