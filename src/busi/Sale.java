@@ -6,8 +6,12 @@ public class Sale {
 	String goods_no;// 商品编号
 	String goods_name;// 商品名称
 	int sale_amt;// 销售数量
-	int price;// 销售价格
+	double price;// 销售价格
 	Date sale_date;// 销售日期
+
+	public Sale() {
+		super();
+	}
 
 	public int addSale() {
 		return 0;
@@ -24,4 +28,51 @@ public class Sale {
 	public int querySale() {
 		return 0;
 	}
+
+	public String getGoods_no() {
+		return goods_no;
+	}
+
+	public void setGoods_no(String goods_no) {
+		this.goods_no = goods_no;
+	}
+
+	public String getGoods_name() {
+		return goods_name;
+	}
+
+	public void setGoods_name(String goods_name) {
+		this.goods_name = goods_name;
+	}
+
+	public int getSale_amt() {
+		return sale_amt;
+	}
+
+	public void setSale_amt(int sale_amt) {
+		this.sale_amt = sale_amt;
+	}
+
+	public double getPrice() {
+		return price;
+	}
+
+	public void setPrice(Double price) {
+		this.price = price;
+	}
+
+	public Date getSale_date() {
+		return sale_date;
+	}
+
+	public void setSale_date(Date sale_date) {
+		this.sale_date = sale_date;
+	}
+
+	@Override
+	public String toString() {
+		return "Sale [goods_no=" + goods_no + ", goods_name=" + goods_name + ", sale_amt=" + sale_amt + ", price="
+				+ price + ", sale_date=" + sale_date + "]";
+	}
+
 }

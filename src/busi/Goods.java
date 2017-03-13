@@ -6,6 +6,18 @@ public class Goods {
 	String goods_unit;// 商品单位
 	String goods_status;// 商品状态
 
+	public Goods() {
+		super();
+	}
+
+	public Goods(String goods_no, String goods_name, String goods_unit, String goods_status) {
+		super();
+		this.goods_no = goods_no;
+		this.goods_name = goods_name;
+		this.goods_unit = goods_unit;
+		this.goods_status = goods_status;
+	}
+
 	public int addGoods() {
 		return 0;
 	}

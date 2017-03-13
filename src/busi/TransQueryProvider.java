@@ -2,25 +2,26 @@ package busi;
 
 import java.util.List;
 
-public class TransQueryGoods extends TransAbs {
+public class TransQueryProvider extends TransAbs {
 	String query_type;// 查询方式
-	String goods_no;// 商品编号
-	String goods_name;// 商品名称
+	String provider_no;// 供货商编号
+	String provider_name;// 供货商名称
 
-	public TransQueryGoods() {
+	public TransQueryProvider() {
 		super();
+
 	}
 
-	public TransQueryGoods(String query_type, String goods_no, String goods_name) {
+	public TransQueryProvider(String query_type, String provider_no, String provider_name) {
 		super();
 		this.query_type = query_type;
-		this.goods_no = goods_no;
-		this.goods_name = goods_name;
+		this.provider_no = provider_no;
+		this.provider_name = provider_name;
 	}
 
 	public void prtPrompt() {
-		System.out.println("查询商品|请输入以下信息：");
-		System.out.println("@query_type @goods_no @goods_name");
+		System.out.println("查询供货商|请输入以下信息：");
+		System.out.println("@query_type @provider_no @provider_name");
 		System.out.println("query_type：0-全部查询  1-精确查询   2-模糊查询");
 	}
 
@@ -34,15 +35,15 @@ public class TransQueryGoods extends TransAbs {
 			return 0;
 		}
 
-		// 商品编号
-		goods_no = scan.next();
-		if (goods_no == null) {
+		// 供货商编号
+		provider_no = scan.next();
+		if (provider_no == null) {
 			setTrans_result("读取商品编号错误");
 			return -1;
 		}
 
-		goods_name = scan.next();
-		if (goods_name == null) {
+		provider_name = scan.next();
+		if (provider_name == null) {
 			setTrans_result("读取商品名称错误");
 			return -1;
 		}
@@ -51,13 +52,13 @@ public class TransQueryGoods extends TransAbs {
 
 	public int doTrans() {
 		if (query_type.equals("0")) {// 全部查询
-			getDbhelper().prtAllGoods();
+			getDbhelper().prtAllProvider();
 			setTrans_result("查询完成");
 			return 0;
 		} else if (query_type.equals("1")) {// 精确查询
-			Goods goods = dbhelper.exactFindGoods(goods_no);
-			if (goods != null) {
-				System.out.println(goods.toString());
+			Provider provider = dbhelper.exactFindProvider(provider_no);
+			if (provider != null) {
+				System.out.println(provider.toString());
 				setTrans_result("精确查询完成");
 				return 0;
 			} else {
@@ -66,10 +67,10 @@ public class TransQueryGoods extends TransAbs {
 			}
 		} else if (query_type.equals("2")) {// 模糊查询（目前只能查一个）
 
-			if (dbhelper.fuzFindGoods(goods_name) != null) {
-				List<Goods> list = dbhelper.fuzFindGoods(goods_name);
-				for (Goods g : list) {
-					System.out.println(g.toString());
+			if (dbhelper.fuzFindProvider(provider_name) != null) {
+				List<Provider> list = dbhelper.fuzFindProvider(provider_name);
+				for (Provider p : list) {
+					System.out.println(p.toString());
 				}
 				return 0;
 			} else {
@@ -93,20 +94,20 @@ public class TransQueryGoods extends TransAbs {
 		this.query_type = query_type;
 	}
 
-	public String getGoods_no() {
-		return goods_no;
+	public String getProvider_no() {
+		return provider_no;
 	}
 
-	public void setGoods_no(String goods_no) {
-		this.goods_no = goods_no;
+	public void setProvider_no(String provider_no) {
+		this.provider_no = provider_no;
 	}
 
-	public String getGoods_name() {
-		return goods_name;
+	public String getProvider_name() {
+		return provider_name;
 	}
 
-	public void setGoods_name(String goods_name) {
-		this.goods_name = goods_name;
+	public void setProvider_name(String provider_name) {
+		this.provider_name = provider_name;
 	}
 
 }

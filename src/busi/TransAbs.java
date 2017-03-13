@@ -3,13 +3,11 @@ package busi;
 import java.util.Scanner;
 
 import db.DBOper;
-import db.ProviderDBOper;
 
 abstract public class TransAbs implements TransInterface {
 	String trans_result;// 每个交易处理结果
 	Scanner scan;
 	DBOper dbhelper;// 数据存取对象
-	ProviderDBOper providerDBOper;
 
 	public TransAbs() {
 		scan = new Scanner(System.in);
@@ -26,14 +24,6 @@ abstract public class TransAbs implements TransInterface {
 
 	public void setDbhelper(DBOper dbhelper) {
 		this.dbhelper = dbhelper;
-	}
-
-	public ProviderDBOper getProviderDBOper() {
-		return providerDBOper;
-	}
-
-	public void setProviderDBOper(ProviderDBOper providerDBOper) {
-		this.providerDBOper = providerDBOper;
 	}
 
 	public String getTrans_result() {

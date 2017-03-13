@@ -19,16 +19,19 @@ public class TransAddPrvd extends TransAbs {
 			return -1;
 		}
 
+		provider_name = scan.next();
 		if (provider_name == null) {
 			setTrans_result("获取供应商名称错误");
 			return -1;
 		}
 
+		provider_addr = scan.next();
 		if (provider_addr == null) {
 			setTrans_result("获取供应商地址错误");
 			return -1;
 		}
 
+		provider_tel = scan.next();
 		if (provider_tel == null) {
 			setTrans_result("获取供应商电话错误");
 			return -1;
@@ -48,11 +51,11 @@ public class TransAddPrvd extends TransAbs {
 		p.setProvider_name(provider_name);
 		p.setProvider_addr(provider_addr);
 		p.setProvider_tel(provider_tel);
-		if (getProviderDBOper().insertProvider(p) == 0) {
-			setTrans_result("新增商品成功");
+		if (getDbhelper().insertProvider(p) == 0) {
+			setTrans_result("新增供货商成功");
 			return 0;
 		} else {
-			setTrans_result("新增商品失败");
+			setTrans_result("新增供货商失败");
 			return -1;
 		}
 	}

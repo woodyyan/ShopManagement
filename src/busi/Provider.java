@@ -5,7 +5,22 @@ public class Provider {
 	String provider_name;// 供货商名称
 	String provider_addr;// 供货商地址
 	String provider_tel;// 供货商电话
-	int provider_status;// 状态
+	String provider_status;// 状态
+
+	public Provider() {
+		super();
+
+	}
+
+	public Provider(String provider_no, String provider_name, String provider_addr, String provider_tel,
+			String provider_status) {
+		super();
+		this.provider_no = provider_no;
+		this.provider_name = provider_name;
+		this.provider_addr = provider_addr;
+		this.provider_tel = provider_tel;
+		this.provider_status = provider_status;
+	}
 
 	public int addProvider() {
 		return 0;
@@ -55,12 +70,18 @@ public class Provider {
 		this.provider_tel = provider_tel;
 	}
 
-	public int getProvider_status() {
+	public String getProvider_status() {
 		return provider_status;
 	}
 
-	public void setProvider_status(int provider_status) {
+	public void setProvider_status(String provider_status) {
 		this.provider_status = provider_status;
+	}
+
+	@Override
+	public String toString() {
+		return "Provider [provider_no=" + provider_no + ", provider_name=" + provider_name + ", provider_addr="
+				+ provider_addr + ", provider_tel=" + provider_tel + ", provider_status=" + provider_status + "]";
 	}
 
 }
