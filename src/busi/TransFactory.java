@@ -23,6 +23,8 @@ public class TransFactory {
 			trans = new TransAddSale();// 销售信息录入
 		} else if (strTrans.equals("9")) {
 			trans = new TransQueryInventory();// 查询库存信息
+		} else if (strTrans.equals("0")) {
+			trans = new TransEditInventory();// 修改库存信息
 		}
 		return trans;
 	}

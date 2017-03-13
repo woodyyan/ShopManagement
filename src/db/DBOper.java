@@ -44,6 +44,15 @@ public class DBOper {
 		return null;
 	}
 
+	public Sale exactFindSale(String no) {
+		for (Sale s : sale_list) {
+			if (s.getGoods_no().equals(no)) {
+				return s;
+			}
+		}
+		return null;
+	}
+
 	public Inventory exactFindInventory(String no) {
 		for (Inventory i : inventory_list) {
 			if (i.getGoods_no().equals(no)) {
@@ -137,17 +146,6 @@ public class DBOper {
 		}
 		return 0;
 	}
-
-	// public int delInventory(Inventory inventory) {
-	// for (int i = 0; i < inventory_list.size(); i++) {
-	// String inventory_no = inventory_list.get(i).getGoods_no();// 当前对象商品编号
-	// String del_inventory_no = inventory.getGoods_no();// 要删除的商品编号
-	// if (inventory_no.equals(del_inventory_no)) {
-	// inventory_list.remove(i);
-	// }
-	// }
-	// return 0;
-	// }
 
 	public int prtAllGoods() {
 		for (Goods g : goods_list) {

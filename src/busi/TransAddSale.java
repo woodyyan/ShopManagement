@@ -3,6 +3,7 @@ package busi;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.List;
 
 public class TransAddSale extends TransAbs {
     String goods_no;// 商品编号
@@ -11,6 +12,12 @@ public class TransAddSale extends TransAbs {
     String goods_unit;
     double sale_price;// 销售价格
     Date sale_date;// 销售日期
+
+//    public void deleteInventory(Sale sale) {//删除库存
+//        Inventory inventory = dbhelper.exactFindInventory(sale.getGoods_no());
+//        List inventoryList = dbhelper.getInventory_list();
+//        inventoryList.remove(inventory);
+//    }
 
     public int findGoodsInfo(String no) {
         Inventory inventory = dbhelper.exactFindInventory(no);
@@ -98,6 +105,7 @@ public class TransAddSale extends TransAbs {
         sale.setPrice(sale_price);
         sale.setSale_amt(sale_count);
         sale.setSale_date(sale_date);
+//        deleteInventory(sale);//从库存中删除
         if (getDbhelper().insertSale(sale) == 0) {
             getDbhelper().prtAllSale();
             setTrans_result("销售信息录入成功");
