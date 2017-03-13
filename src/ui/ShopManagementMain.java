@@ -37,12 +37,6 @@ public class ShopManagementMain {
 		dbhelper.insertProvider(p3);
 		dbhelper.insertProvider(p4);
 
-		// // Inventory i1 = new Inventory("0001", "华为P8", 8, "部", 2000.00, new
-		// // Date(), "迪信通");
-		// // Inventory i2 = new Inventory("0002", "华为麦芒", 6, "部", 1800.00, new
-		// // Date(), "迪信通");
-		// // dbhelper.insertInventory(i1);
-		// // dbhelper.insertInventory(i2);
 		/* 添加测试数据结束 */
 
 		while (true) {

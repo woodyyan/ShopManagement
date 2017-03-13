@@ -2,21 +2,10 @@ package busi;
 
 import java.util.List;
 
-public class TransQueryGoods extends TransAbs {
-	String query_type;// 查询方式
+public class TransQueryInventory extends TransAbs {
+	String query_type;
 	String goods_no;// 商品编号
 	String goods_name;// 商品名称
-
-	public TransQueryGoods() {
-		super();
-	}
-
-	public TransQueryGoods(String query_type, String goods_no, String goods_name) {
-		super();
-		this.query_type = query_type;
-		this.goods_no = goods_no;
-		this.goods_name = goods_name;
-	}
 
 	public void prtPrompt() {
 		System.out.println("查询商品|请输入以下信息：");
@@ -52,13 +41,13 @@ public class TransQueryGoods extends TransAbs {
 
 	public int doTrans() {
 		if (query_type.equals("0")) {// 全部查询
-			getDbhelper().prtAllGoods();
+			getDbhelper().prtAllInventory();
 			setTrans_result("查询完成");
 			return 0;
 		} else if (query_type.equals("1")) {// 精确查询
-			Goods goods = dbhelper.exactFindGoods(goods_no);
-			if (goods != null) {
-				System.out.println(goods.toString());
+			Inventory inventory = dbhelper.exactFindInventory(goods_no);
+			if (inventory != null) {
+				System.out.println(inventory.toString());
 				setTrans_result("精确查询完成");
 				return 0;
 			} else {
@@ -67,10 +56,10 @@ public class TransQueryGoods extends TransAbs {
 			}
 		} else if (query_type.equals("2")) {// 模糊查询（目前只能查一个）
 
-			if (dbhelper.fuzFindGoods(goods_name) != null) {
-				List<Goods> list = dbhelper.fuzFindGoods(goods_name);
-				for (Goods g : list) {
-					System.out.println(g.toString());
+			if (dbhelper.fuzFindInventory(goods_name) != null) {
+				List<Inventory> list = dbhelper.fuzFindInventory(goods_name);
+				for (Inventory i : list) {
+					System.out.println(i.toString());
 				}
 				return 0;
 			} else {
@@ -85,29 +74,4 @@ public class TransQueryGoods extends TransAbs {
 	public void prtResult() {
 		System.out.println(trans_result);
 	}
-
-	public String getQuery_type() {
-		return query_type;
-	}
-
-	public void setQuery_type(String query_type) {
-		this.query_type = query_type;
-	}
-
-	public String getGoods_no() {
-		return goods_no;
-	}
-
-	public void setGoods_no(String goods_no) {
-		this.goods_no = goods_no;
-	}
-
-	public String getGoods_name() {
-		return goods_name;
-	}
-
-	public void setGoods_name(String goods_name) {
-		this.goods_name = goods_name;
-	}
-
 }

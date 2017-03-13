@@ -44,6 +44,15 @@ public class DBOper {
 		return null;
 	}
 
+	public Inventory exactFindInventory(String no) {
+		for (Inventory i : inventory_list) {
+			if (i.getGoods_no().equals(no)) {
+				return i;
+			}
+		}
+		return null;
+	}
+
 	public List<Goods> fuzFindGoods(String str) {
 		List<Goods> list = new ArrayList<Goods>();
 		for (Goods g : goods_list) {
@@ -59,6 +68,16 @@ public class DBOper {
 		for (Provider p : provider_list) {
 			if (p.getProvider_name().indexOf(str) != -1) {
 				list.add(p);
+			}
+		}
+		return list;
+	}
+
+	public List<Inventory> fuzFindInventory(String str) {
+		List<Inventory> list = new ArrayList<Inventory>();
+		for (Inventory i : inventory_list) {
+			if (i.getGoods_name().indexOf(str) != -1) {
+				list.add(i);
 			}
 		}
 		return list;
@@ -154,6 +173,13 @@ public class DBOper {
 	public int prtAllSale() {
 		for (Sale s : sale_list) {
 			System.out.println(s.toString());
+		}
+		return 0;
+	}
+
+	public int prtAllInventory() {
+		for (Inventory i : inventory_list) {
+			System.out.println(i.toString());
 		}
 		return 0;
 	}

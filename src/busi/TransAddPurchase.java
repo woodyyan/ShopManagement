@@ -13,9 +13,8 @@ public class TransAddPurchase extends TransAbs {
 	Date purchase_date;// 进货日期
 	String prvd;// 供货商
 
-	public void addInventory(String goods_no, String goods_name, int goods_count, String goods_unit, double goods_price,
-			Date purchase_date) {
-		Inventory inventory = new Inventory(goods_no, goods_name, goods_count, goods_unit, goods_price, purchase_date);
+	public void addInventory(Purchase p) {
+		Inventory inventory = new Inventory(p);
 		dbhelper.insertInventory(inventory);
 	}
 
@@ -109,12 +108,12 @@ public class TransAddPurchase extends TransAbs {
 		Purchase purchase = new Purchase();
 		purchase.setGoods_no(goods_no);
 		purchase.setGoods_name(goods_name);
-		purchase.setGoods_count(goods_count);
+		purchase.setPurchase_amt(goods_count);
 		purchase.setGoods_unit(goods_unit);
-		purchase.setGoods_price(goods_price);
+		purchase.setPurchase_price(goods_price);
 		purchase.setPurchase_date(purchase_date);
 		purchase.setPrvd(prvd);
-		addInventory(goods_no, goods_name, goods_count, goods_unit, goods_price, purchase_date);// 添加库存信息
+		addInventory(purchase);// 添加库存(采购之后才有库存)
 		if (getDbhelper().insertPurchase(purchase) == 0) {
 			dbhelper.prtAllPurchase();
 			setTrans_result("采购信息录入成功");

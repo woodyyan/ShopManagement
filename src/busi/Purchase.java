@@ -47,6 +47,14 @@ public class Purchase {
 		this.goods_name = goods_name;
 	}
 
+	public int getPurchase_amt() {
+		return purchase_amt;
+	}
+
+	public void setPurchase_amt(int purchase_amt) {
+		this.purchase_amt = purchase_amt;
+	}
+
 	public String getGoods_unit() {
 		return goods_unit;
 	}
@@ -55,20 +63,12 @@ public class Purchase {
 		this.goods_unit = goods_unit;
 	}
 
-	public int getGoods_count() {
-		return purchase_amt;
-	}
-
-	public void setGoods_count(int goods_count) {
-		this.purchase_amt = goods_count;
-	}
-
-	public double getGoods_price() {
+	public double getPurchase_price() {
 		return purchase_price;
 	}
 
-	public void setGoods_price(double goods_price) {
-		this.purchase_price = goods_price;
+	public void setPurchase_price(double purchase_price) {
+		this.purchase_price = purchase_price;
 	}
 
 	public Date getPurchase_date() {

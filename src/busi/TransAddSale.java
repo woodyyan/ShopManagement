@@ -3,7 +3,6 @@ package busi;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.Date;
-import java.util.List;
 
 public class TransAddSale extends TransAbs {
 	String goods_no;// 商品编号
@@ -17,23 +16,19 @@ public class TransAddSale extends TransAbs {
 	Date purchaseDate;// 进货时间
 
 	public int findGoodsInfo(String no) {
-		List<Inventory> iList = dbhelper.getInventory_list();
-		if (!iList.contains(no)) {
+		Inventory inventory = dbhelper.exactFindInventory(no);
+		if (inventory == null) {
 			setTrans_result("找不到该商品编号！");
 			return -1;
 		} else {
 			System.out.println("该商品信息如下：");
-			for (Inventory inventory : iList) {
-				if (inventory.getGoods_no() == no) {
-					stockNo = inventory.getGoods_count();// 拿到库存数量
-					stockPrice = inventory.getGoods_price();// 拿到进货价格
-					purchaseDate = inventory.getPurchase_date();// 拿到进货时间
-					System.out.println(inventory.toString());
-				}
-			}
+			System.out.println("goods_no[" + inventory.getGoods_no() + "],");
+			System.out.println("goods_name[" + inventory.getGoods_name() + "],");
+			System.out.println("Goods_count[" + inventory.getGoods_count() + "]");
 
-			return 0;
 		}
+
+		return 0;
 	}
 
 	public void prtPrompt() {

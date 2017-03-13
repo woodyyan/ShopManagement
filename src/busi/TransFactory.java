@@ -21,6 +21,8 @@ public class TransFactory {
 			trans = new TransAddPurchase();// 采购信息录入
 		} else if (strTrans.equals("8")) {
 			trans = new TransAddSale();// 销售信息录入
+		} else if (strTrans.equals("9")) {
+			trans = new TransQueryInventory();// 查询库存信息
 		}
 		return trans;
 	}

@@ -10,28 +10,19 @@ public class Inventory {
 	double goods_price;// 进货价格
 	Date purchase_date;// 进货日期
 
-	// public boolean isEnough(Purchase p, int saleNo) {
-	// if (p.getGoods_count() >= saleNo) {
-	// return true;
-	// } else {
-	// return false;
-	// }
-	// }
-
 	public Inventory() {
 		super();
 
 	}
 
-	public Inventory(String goods_no, String goods_name, int goods_count, String goods_unit, double goods_price,
-			Date purchase_date) {
+	public Inventory(Purchase p) {
 		super();
-		this.goods_no = goods_no;
-		this.goods_name = goods_name;
-		this.goods_count = goods_count;
-		this.goods_unit = goods_unit;
-		this.goods_price = goods_price;
-		this.purchase_date = purchase_date;
+		this.goods_no = p.getGoods_no();
+		this.goods_name = p.getGoods_name();
+		this.goods_count = p.getPurchase_amt();
+		this.goods_unit = p.getGoods_unit();
+		this.goods_price = p.getPurchase_price();
+		this.purchase_date = p.getPurchase_date();
 	}
 
 	public String getGoods_no() {
